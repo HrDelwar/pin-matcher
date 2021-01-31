@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin Generator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="removeCatch()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="pin-generator half-width">
+                    <input id="generated-pin" class="form-control" readonly type="text">
+                    <button id="pin-generate" class="generate-btn">Generate Pin</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-section half-width">
+                    <input id="user-pin" class="form-control"  type="text">
+                    <div class="numbers">
+                        <div class="calc-body">
+                            <div class="calc-button-row">
+                              <div onclick="displayInputValue(7)" class="button">7</div>
+                              <div onclick="displayInputValue(8)" class="button">8</div>
+                              <div onclick="displayInputValue(9)"  class="button">9</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div onclick="displayInputValue(4)"  class="button">4</div>
+                              <div  onclick="displayInputValue(5)" class="button">5</div>
+                              <div  onclick="displayInputValue(6)"  class="button">6</div>
+                            </div>
+                            <div class="calc-button-row">
+                              <div onclick="displayInputValue(1)"  class="button">1</div>
+                              <div  onclick="displayInputValue(2)"  class="button">2</div>
+                              <div onclick="displayInputValue(3)"  class="button">3</div>
+                            </div>
+                            <div class="calc-button-row">
+                                <div onclick="clearAll()" class="button">C</div>
+                                <div onclick="displayInputValue(0)"  class="button">0</div>
+                                <div onclick="backspace()" class="button">&larr;</div>
+                            </div>
+                            <div>
+                                <button id="match-pin" type="submit" class="submit-btn">Submit</button>
+                                <p id="timing-count" class="action-left"><span id="count-left">3</span> try left</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notify-section">
+            <p id="match-msg" class="notify">❌ Pin Didn't Match, Please try again</p>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
