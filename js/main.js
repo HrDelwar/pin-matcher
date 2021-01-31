@@ -2,6 +2,7 @@
 function getId(id) {
     return document.getElementById(id);
 }
+
 // generate pin event
 let count = 3;// for try left
 getId('pin-generate').addEventListener('click', () => {
@@ -14,6 +15,7 @@ getId('pin-generate').addEventListener('click', () => {
     getId('count-left').innerText = count;// show trying left
     getId('user-pin').value = '';//clear user pin field
 })
+
 // pin matching event
 getId('match-pin').addEventListener('click', () => {
     if (count >= 1) {
@@ -72,28 +74,36 @@ function handlePinMatch() {
         setMessage("❌ Pin Didn't Match, Please try again");// set message
     }
 }
+
 // hide try left section 
-function tryLeftHide(){
+function tryLeftHide() {
     getId('timing-count').style.display = 'none';// hide try left
 }
 
 //set message 
-function setMessage(message){
+function setMessage(message) {
     getId('match-msg').innerHTML = message;
-} 
-
-//showing value in input field when click number button
-function displayInputValue(value) {
-    let usrPin = getId('user-pin').value;//catch user value
-    // set maximum length for user pin
-    if (usrPin.length < 6) {
-        getId('user-pin').value += value;// catch new value and add with previous value
-    }
 }
 
-// clear input field when click clear button
-function clearAll() {
-    getId('user-pin').value = '';//clear all user pin field
+//showing value in input field when click  button
+function inputBtnHandle(event) {
+    const inputValue = event.target.innerText;//catch button inner value
+    if (isNaN(inputValue)) {
+        // not a digit  
+        // clear button handel
+        if(inputValue === 'C'){
+            getId('user-pin').value = '';// clear user pin
+        }
+    } else {
+        // digit
+        const userPinId = getId('user-pin');//catch user pin id
+        // for maximum 6 digit
+        if (userPinId.value.length < 6) {
+            getId('user-pin').value += inputValue;// catch user pin and add new user pin
+        }
+
+    }
+
 }
 
 // remove last one value in input field
@@ -101,7 +111,7 @@ function backspace() {
     const userPinId = getId('user-pin')// catch user pin id
     let userPin = userPinId.value; //catch user pin
     userPinId.value =
-    userPin.substr(0, userPin.length - 1); // remove last number and set again
+        userPin.substr(0, userPin.length - 1); // remove last number and set again
 }
 
 // remove catch data
