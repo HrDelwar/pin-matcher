@@ -91,7 +91,7 @@ function inputBtnHandle(event) {
     if (isNaN(inputValue)) {
         // not a digit  
         // clear button handel
-        if(inputValue === 'C'){
+        if (inputValue === 'C') {
             getId('user-pin').value = '';// clear user pin
         }
     } else {
