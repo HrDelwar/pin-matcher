@@ -70,6 +70,7 @@ function handlePinMatch() {
 
     }
     else {
+        getId('user-pin').value = '';//clear user value
         // user pin is not match
         setMessage("❌ Pin Didn't Match, Please try again");// set message
     }
